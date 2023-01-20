@@ -1,0 +1,15 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCxHep8Gixmhg4y+qB3/GMRsYydBiSxK42GtENmuuICAb/8N2hBJKQ78L1ebTZ/8ZvdMJxcrNcfb67WzZsP67t+qYTx/GAlHYw0bsQ3SzstS4YLqoeBTz2CBd/AuSQS/Kw0qXiOu1fE81SS2MxmU9og4Bnnya6rTDLpYG+GqhJ/A0pZ7APQCzVkc0UpL7QeJ4odt6OlGdI/7ECJXFP6k/KHFrcvHxcWQQrjWPy74NO+3/RSjWaRRh3BhrAi7i+sEmrVd3nNNITxrk1IEaH0qBq2xKzMc/Di/gxULRDilE/N8O7Nf0DiIm2lR6ZY9wFtUflROpo5iuXaz/IfJSePLZyJB5FmVL0ckE18puEqHjt+jDK+m4nDG3U8GjXzLkixZh7VN2c6uv6rR/2b3undrlE4YiXMi6bshe4dNzfXAvGDRnuoKssAEq1ImAdrsFR54WM0oW0LBTGKAFNLAwgY96FWrKBxxXuFclLNFItm+MgE6gvfxwuQZW56KoPnQWT+QR0= utkarsh@LAPTOP-8AFTUOBM"
+        ]
+      }
+    ]
+  }
+}

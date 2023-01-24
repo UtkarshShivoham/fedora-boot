@@ -1,6 +1,6 @@
 {
   "ignition": {
-    "version": "3.0.0"
+    "version": "3.3.0"
   },
   "passwd": {
     "groups": [
@@ -89,6 +89,7 @@
       {
         "path": "/etc/sysctl.d/20-silence-audit.conf",
         "contents": {
+          "compression": "",
           "source": "data:,kernel.printk%3D4%0A"
         }
       },
@@ -103,13 +104,15 @@
         "overwrite": true,
         "path": "/etc/NetworkManager/system-connections/enp1s0.nmconnection",
         "contents": {
-          "source": "data:,%5Bconnection%5D%0Atype%3Dethernet%0Aid%3D%22Wired%20connection%201%22%0Ainterface-name%3Denp3s0%0A%0A%5Bipv4%5D%0Amethod%3Dmanual%0Aaddresses%3D192.168.0.61%2F24%0Agateway%3D192.168.0.1%0A%20dns%3D192.168.0.1%3B8.8.8.8%20%20%20%20%0A"
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/0zKwaqDMBBG4f08xeD+5horYil5ji7ExWD+1kAdJZm2+PaFbipnd/iGaVXFZGnVkWzfEGAzssIoxVBdU0bkn2FfUVJDvsmEP5UFAbqdSk00pO3VjrTA5jWGRfQpD5IYM0pBCf7cON/1rnad/29auovhLfvhe+KoR+gvvfvGzEyfAAAA//8p8QKqqgAAAA=="
         },
         "mode": 384
       },
       {
         "path": "/etc/profile.d/systemd-pager.sh",
         "contents": {
+          "compression": "",
           "source": "data:,%23%20Tell%20systemd%20to%20not%20use%20a%20pager%20when%20printing%20information%0Aexport%20SYSTEMD_PAGER%3Dcat%0A"
         },
         "mode": 420
@@ -123,7 +126,8 @@
           "id": 1001
         },
         "contents": {
-          "source": "data:,service%3A%0A%20sshd%3A%0A%20%20enabled%3A%20true%0A%20%20running%3A%20true%0Auser%3A%0A%20core%3A%0A%20%20exists%3A%20true%0A%20%20uid%3A%201000%0A%20%20gid%3A%201000%0A%20%20groups%3A%0A%20%20-%20adm%0A%20%20-%20core%0A%20%20-%20systemd-journal%0A%20%20-%20wheel%0A%20%20home%3A%20%2Fvar%2Fhome%2Fcore%0A%20%20shell%3A%20%2Fbin%2Fbash%0A%20goss%3A%0A%20%20exists%3A%20true%0A%20%20uid%3A%20111%0A%20%20gid%3A%20111%0A%20%20groups%3A%0A%20%20-%20nhs%0A%20%20-%20sudo%0A%20%20home%3A%20%2Fhome%2Fgoss%0A%20utkarsh%3A%0A%20%20exists%3A%20true%0A%20%20uid%3A%201001%0A%20%20gid%3A%201001%0A%20%20groups%3A%0A%20%20-%20mortal%0A%20%20-%20sudo%0A%20%20-%20wheel%0A%20%20home%3A%20%2Fhome%2Futkarsh%0A%20%20shell%3A%20%2Fbin%2Fbash%0Agroup%3A%0A%20core%3A%0A%20%20exists%3A%20true%0A%20%20gid%3A%201000%0A%20eternal%3A%20%0A%20%20exists%3A%20true%0A%20%20gid%3A%20111%0A%20nhs%3A%0A%20%20exists%3A%20true%0A%20%20gid%3A%20776%0A%0A%0Aprocess%3A%0A%20sshd%3A%0A%20%20running%3A%20true%0A%0A%0Acommand%3A%0A%20%22disk_space_alert(%3E%3D95%25)%22%3A%20%23%23%20Rolled%20'low%20diskspace'%20alert%0A%20%23%20required%20attributes%0A%20exit-status%3A%200%0A%20exec%3A%20%22df%20--exclude-type%3Dtmpfs%20--exclude-type%3Ddevtmpfs%20--local%22%0A%20%23%20optional%20attributes%0A%20stdout%3A%20%5B%22!%2F%5C%5Cs(100%7C9%5B5-9%5D)%25%2F%22%5D%20%23%20%3E%3D95%25%0A%20stderr%3A%20%5B%5D%0A%20timeout%3A%203000%20%23%20ms%0A%20skip%3A%20false"
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/3xS227bMAx911dwNoq2D4ZtDF0RAd1H7DUNCsViYi26eCKVpsA+fpDqdmk29ykn9OG5ECKMRzOgFEA0aikA0KutRS2BY0IBEJP3xu/n/4kwSgFDiFjIJ0NM79xktIS+6zoBsD/HMaSJ8kIDSrvymyUKoBdidLr5GVL0ypbZ84iY0RgcSmiPKrYZtvMSjWithHZrfLtVNArYB6LFQH3/nucVnsXxI72mSDr8NSxmWVNA4oOKNH7Stj9reynvQuS50+zwT7niNbv8r1uRW7752Z2RMV9QwhIrt/cjLanc338TQkwxDFiu+fYkPj4BIYbgnPL5U6UNHZ5oUgM+KYuRb74/rO6ubisJdQ0/grWo4dqGZ8jEwruGQhRQQ8RfyUTUoJij2SZGEjkYN8SKE0nIpU44SKj0DpoGT4NNGht+mfCB3bSjy6HG49vchkHZKvuEiU3wyn7wIdYhsYR19aV9fKSbvut+r9Z3zWpze9VWG6ihVClEjFHCeiOAjcOy9bXrOqjBZaGDmSTslCX8EwAA//8pk8M+TgMAAA=="
         },
         "mode": 420
       }
@@ -149,6 +153,10 @@
         "contents": "[Units]\nDescription=Install goss\nConditionFirstBoot=yes\nWants=network-online.target\nAfter=network-online.target\nBefore=install-overlayed-rpms.service\n[Service]\nType=oneshot\nExecStart=/bin/sh -c 'curl -LsS https://goss.rocks/install | /bin/sh'\nRemainAfterExit=no\n[Install]\nWantedBy=multi-user.target\n",
         "enabled": true,
         "name": "install-goss.service"
+      },
+      {
+        "contents": "# This unit creates /run/ignition/neednet if networking needs to be enabled.\n# The distro is responsible for sequencing a unit between\n# ignition-fetch-offline.service and ignition-fetch.service, detecting the\n# flag file with ConditionPathExists=, and enabling networking.\n\n[Unit]\nDescription=Ignition (fetch-offline)\nDocumentation=https://github.com/coreos/ignition\nConditionPathExists=/etc/initrd-release\nDefaultDependencies=false\nBefore=ignition-complete.target\nAfter=basic.target\n\n# Stage order: setup -\u003e fetch-offline [-\u003e fetch] -\u003e disks -\u003e mount -\u003e files.\n# We run after the setup stage has run because it may copy in new/different\n# ignition configs for us to consume.\nAfter=ignition-setup-base.service\nAfter=ignition-setup-user.service\nBefore=ignition-fetch.service\n\nOnFailure=emergency.target\nOnFailureJobMode=isolate\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nEnvironmentFile=/run/ignition.env\nExecStart=/usr/bin/ignition --root=/sysroot --platform=${PLATFORM_ID} --stage=fetch-offline\n",
+        "name": "ignition-fetch-offline.service"
       }
     ]
   }
